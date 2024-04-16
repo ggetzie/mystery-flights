@@ -1097,7 +1097,6 @@
     "OCC",
     "PTY",
     "SAL",
-    "TUA",
     "XMS"
   ],
   "BDS": [
@@ -2053,21 +2052,12 @@
     "OLH",
     "ORI"
   ],
-  "AOS": [
-    "KZB"
-  ],
   "KKB": [
     "SYB"
-  ],
-  "KLN": [
-    "KYK"
   ],
   "KOZ": [
     "ADQ",
     "ORI"
-  ],
-  "SYB": [
-    "KPR"
   ],
   "BSO": [
     "MNL"
@@ -2797,7 +2787,6 @@
     "SLC",
     "SMF",
     "SNA",
-    "SPI",
     "SRQ",
     "STC",
     "STL",
@@ -11905,7 +11894,6 @@
     "SLP",
     "SMF",
     "SNA",
-    "SPI",
     "SPS",
     "STL",
     "TLH",
@@ -13796,7 +13784,6 @@
     "KRR",
     "KSO",
     "KVA",
-    "KZI",
     "LCA",
     "LED",
     "LGW",
@@ -21573,9 +21560,6 @@
   ],
   "PUE": [
     "PAC"
-  ],
-  "PVE": [
-    "CZJ"
   ],
   "PYC": [
     "ACU"
@@ -31424,7 +31408,6 @@
   ],
   "ATM": [
     "BEL",
-    "ORX",
     "STM"
   ],
   "BAZ": [
@@ -31433,7 +31416,6 @@
   "BEL": [
     "ATM",
     "BSB",
-    "BVS",
     "CAY",
     "CKS",
     "CNF",
@@ -31590,7 +31572,6 @@
   "IMP": [
     "BEL",
     "BSB",
-    "BSS",
     "CNF",
     "SLZ"
   ],
@@ -31827,8 +31808,6 @@
     "ITB",
     "MAO",
     "MEU",
-    "MTE",
-    "ORX",
     "TMT"
   ],
   "TBT": [
@@ -35410,9 +35389,6 @@
     "BKY",
     "FIH"
   ],
-  "KOO": [
-    "FMI"
-  ],
   "LJA": [
     "FIH"
   ],
@@ -35702,7 +35678,6 @@
     "BKK",
     "BYN",
     "COQ",
-    "DLZ",
     "FRU",
     "HKG",
     "HVD",
@@ -37677,7 +37652,6 @@
     "ROA",
     "SBN",
     "SGF",
-    "SPI",
     "TOL",
     "TRI",
     "TUL",
@@ -38862,7 +38836,6 @@
     "RFD",
     "SBN",
     "SGF",
-    "SPI",
     "TOL",
     "TYS",
     "YNG"
@@ -39224,7 +39197,6 @@
   ],
   "JNS": [
     "JJU",
-    "QFX",
     "UAK"
   ],
   "JQA": [
@@ -40437,8 +40409,7 @@
     "PEU",
     "RTB",
     "SAP",
-    "TGU",
-    "UII"
+    "TGU"
   ],
   "LYB": [
     "CYB",
@@ -40698,7 +40669,6 @@
   ],
   "MEU": [
     "BEL",
-    "ORX",
     "STM"
   ],
   "OZH": [

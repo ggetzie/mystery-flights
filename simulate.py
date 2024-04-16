@@ -44,13 +44,15 @@ def get_routes():
         reader = csv.DictReader(f)
         routes = defaultdict(list)
         rows = list(reader)
-
+    sources = {row["source_airport"] for row in rows}
     for row in rows:
         # only nonstop flights to and from airports we have info for
+        # only include destinations that are also sources
         if (
             row["stops"] == "0"
             and row["source_airport"] in airports
             and row["destination_airport"] in airports
+            and row["destination_airport"] in sources
         ):
             routes[row["source_airport"]].append(row["destination_airport"])
     for key, value in routes.items():
@@ -106,20 +108,22 @@ def path_stats(paths):
             else:
                 didnt_finish += 1
         else:
-            lengths.append(len(path))
+            lengths.append(len(path[1:]))
     return {
         "dead_ends": dead_ends,
         "didnt_finish": didnt_finish,
-        "shortest": min(lengths),
-        "longest": max(lengths),
-        "average": sum(lengths) / len(lengths),
+        "shortest": min(lengths) if lengths else 0,
+        "longest": max(lengths) if lengths else 0,
+        "average": (sum(lengths) / len(lengths)) if lengths else 0,
+        "finished_lengths": lengths,
     }
 
 
 def get_all_paths_stats():
     res = {}
     count = 0
-    airports = [airport for airport in AIRPORTS if airport in ROUTES]
+    # only consider airports with more than 2 destinations
+    airports = [airport for airport in AIRPORTS if len(ROUTES.get(airport, [])) > 2]
     total = len(airports)
     for airport in airports:
         paths = get_paths(airport)
@@ -127,9 +131,29 @@ def get_all_paths_stats():
         res[airport] = stats
         count += 1
         print(
-            f"Processed {count} of {total} airports {(count/total)*100:.2f}% complete",
+            (
+                f"Processed {airport}. Status: {count} of {total} airports "
+                f"{(count/total)*100:.2f}% complete"
+            ),
             end="\r",
         )
     with open("data/all_stats.json", "w", encoding="utf-8") as f:
         json.dump(res, f, indent=2)
     return res
+
+
+def load_all_stats():
+    f = pathlib.Path("data/all_stats.json")
+    if not f.exists():
+        return get_all_paths_stats()
+    return json.load(f.open(encoding="utf-8"))
+
+
+def overall_average(all_stats):
+    total = 0
+    count = 0
+    for stats in all_stats.values():
+        for length in stats["finished_lengths"]:
+            total += length
+            count += 1
+    return total / count
